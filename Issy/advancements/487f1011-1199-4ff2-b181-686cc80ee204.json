@@ -1,7 +1,8 @@
 {
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:badlands": "2020-06-21 17:30:00 -0500"
+      "minecraft:desert": "2020-06-21 19:29:23 -0500",
+      "minecraft:badlands": "2020-06-21 19:29:07 -0500"
     },
     "done": false
   },
