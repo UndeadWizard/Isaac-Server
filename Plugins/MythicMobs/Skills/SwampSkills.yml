@@ -1,0 +1,21 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Tempest-Blast:
+  Cooldown: 3
+  Skills:
+  - projectile{onTick=Tempest-Blast-Tick;onHit=Tempest-Blast-Hit;v=20;i=1;hR=1;vR=1}
+Tempest-Blast-Tick:
+  Skills:
+  - effect:particles{p=snowballpoof;amount=20;speed=0;hs=.3;vs=.3} @origin
+  - effect:particles{p=snowshovel;amount=100;speed=0.1;hs=.3;vs=.3} @origin
+  - sound{s=mob.horse.breathe;v=1} @origin
+Tempest-Blast-Hit:
+  Skills:
+  - damage{a=10}
+  - throw{velocitiy=20;velocityY=10}
+#SummonWinds:
+#  Cooldown: 15
+#  Skills:
+#  - summon{mob=Tempest-Winds;amount=2;radius=10} @Self

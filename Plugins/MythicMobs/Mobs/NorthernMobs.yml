@@ -1,0 +1,139 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+Torn:
+  Mobtype: HUSK
+  Health: 20
+  Damage: 1
+  Despawn: true
+  Disguise:
+    Type: Torn
+  Options:
+    MovementSpeed: 0.4
+    FollowRange: 120
+    Silent: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+  Drops:
+  - exp 20 1
+  - rotten_flesh
+  - ghast_tear 0-2 1
+Whole:
+  Mobtype: HUSK
+  Health: 30
+  Damage: 2
+  Despawn: true
+  Disguise:
+    Type: Whole
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 120
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+  Equipment:
+  - IRON_AXE:0
+  - IRON_CHESTPLATE:3
+  Drops:
+  - exp 20 1
+Zealous:
+  Mobtype: HUSK
+  Health: 50
+  Damage: 2
+  Despawn: True
+  Disguise:
+    Type: Zealous
+  AIGoalSelectors:
+  - 0 clear
+  - 1 randomstroll
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - sound{s=entity.enderman.scream;v=.5;p=.8} @self
+  - skill{skill=EldritchBlast} @target ~onTimer:200
+  - skill{s=RaiseDead} @self ~onDamaged =40 1 
+  - skill{s=RaiseDead} @self ~onDamaged =25 1
+  - command{c='givetokens <target.name> 1 tatteredjournal'} @PlayersInRadius{r=30} ~onDeath 0.05
+  Drops:
+  - exp 100 1
+Broken:
+  Mobtype: HUSK
+  Health: 20
+  Damage: 1
+  Despawn: true
+  Disguise:
+    Type: Skeleton
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 120
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - sound{s=entity.skeleton.hurt} @self
+  Equipment:
+    - IRON_AXE:0
+  Drops:
+  - exp 20 1
+  - bone 1-2 1
+  
+Defiler:
+  Mobtype: HUSK
+  Health: 350
+  Damage: 3
+  Disguise:
+    Type: Defiler
+  AIGoalSelectors:
+  - 0 clear
+  - 1 randomstroll
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  BossBar:
+    Enabled: true
+    Title: 'The Defiler'
+    Range: 20
+    Color: PURPLE
+    Style: SOLID
+  Options:
+    MaxCombatDistance: 10
+    MovementSpeed: 0.2
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - sound{s=entity.enderman.scream;v=.5;p=.4} @self
+  - skill{skill=EldritchBlast} @target ~onTimer:100
+  - skill{s=GreaterRaiseDead} @self ~onDamaged =300 1
+  - sendtitle{title="&kLeave this place!";d=40} @PlayersInRadius{r=30} ~onDamaged =300 1  
+  - skill{s=GreaterRaiseDead} @self ~onDamaged =250 1
+  - sendtitle{title="&kLeave this place!";d=40} @PlayersInRadius{r=30} ~onDamaged =250 1  
+  - skill{s=GreaterRaiseDead} @self ~onDamaged =200 1
+  - sendtitle{title="&kLeave this place!";d=40} @PlayersInRadius{r=30} ~onDamaged =200 1  
+  - skill{s=GreaterRaiseDead} @self ~onDamaged =150 1
+  - sendtitle{title="&kLeave this place!";d=40} @PlayersInRadius{r=30} ~onDamaged =150 1
+  - skill{s=GreaterRaiseDead} @self ~onDamaged =100 1
+  - sendtitle{title="&kLeave this place!";d=40} @PlayersInRadius{r=30} ~onDamaged =100 1
+  - skill{s=GreaterRaiseDead} @self ~onDamaged =50 1
+  - sendtitle{title="&kLeave this place!";d=40} @PlayersInRadius{r=30} ~onDamaged =50 1    
+  - skill{s=EldritchPush} @target >0 0.2
+  - command{c='givetokens <target.name> 1 tatteredjournal'} @PlayersInRadius{r=30} ~onDeath 0.6 
+  #- command{c='minecraft:give <target.name> written_book{pages:['{"text":" \\u0020 \\u0020 \\u0020 \\u0020 Day 1\\n-------------------\\n\\"Not sure where to begin. it seems as though this is an experiment that must be done. Negative consequences are unknown as of this point. but if I suceed my name will be known for all time. Faye, I am going to save you.\\""}','["",{"text":" \\u0020 \\u0020 \\u0020 \\u0020 Day 12\\n-------------------\\n\\"Success! Time has kneeled, for I am its conquerer. The Harzan manuscripts allowed me to devise a ritual to siphon energy from what I\'ve dubbed the realm of "},{"text":"Thaurm","bold":true},{"text":". The rats have reanimated, though they have flaws.\\"","color":"reset"}]','{"text":" \\u0020 \\u0020 \\u0020 \\u0020 Day 24\\n-------------------\\n\\"No matter what, I can\'t seem to turn back the degradation displayed from the reanimated rats. The rot seems to permeate their very souls! I am still translating the Harzan Manuscripts, surely the answer lies within.\\" "}','{"text":" \\u0020 \\u0020 \\u0020 \\u0020 Day 56\\n-------------------\\n\\"The days have blended together into months. It seems my dear Faye, that I won\'t be able to save you as soon as I thought. My rats, they seem ignorant of their old life, forgetting the tricks taught to them before their reanimation.\\""}','{"text":" \\u0020 \\u0020 \\u0020 \\u0020 Day 79\\n-------------------\\n\\"The work on the Harzan Manuscripts has revealed much to me. My newest ritual has shown much promise, as many of my rats do show memories before reanimation. Peculiarly, my rats have been hostile to their living counterparts.\\""}'],title:"Necromancer's Journal Vol. I",author:"The Defiler",generation:3}'} @PlayersInRadius{r=30} ~onDeath 1 
+  Equipment:
+  - IRON_SWORD:0
+  Drops:
+  - DefilerDrops 

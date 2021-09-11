@@ -1,0 +1,101 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Tempest:
+  Mobtype: HUSK
+  Health: 150
+  Damage: 4
+  ShowHealth: true
+  BossBar:
+    Enabled: true
+    Title: 'Tempest'
+    Range: 20
+    Color: BLUE
+    Style: SOLID
+  Disguise:
+   Type: Tempest
+  Options:
+    UseThreatTable: true
+    MovementSpeed: 0.3
+    FollowRange: 100
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - effect:particles{particle=cloud;amount=10;hs=1;vs=2;speed=.1} @self ~onTimer:20
+  - skill{s=Tempest-Blast} @target ~onTimer:80
+  - summon{type=Tempest-Winds;amount=2;radius=10} @self ~onDamaged =75 1
+  - summon{type=Tempest-Winds;amount=2;radius=10} @self ~onDamaged =25 1
+  Equipment:
+    - TRIDENT:0
+  Drops:
+  - TempestDrops 
+Tempest-Winds:
+  Mobtype: HUSK
+  Health: 1000
+  Display: '&fTempestal Winds'
+  Damage: 1
+  ShowHealth: false
+  Despawn: true
+  DamageModifiers:
+  - DROWNING 0
+  - BLOCK_EXPLOSION 0
+  - ENTITY_EXPLOSION 0
+  - LIGHTNING 0
+  - STARVATION 0
+  - POISON 0
+  - MAGIC 0
+  - WITHER 0
+  - FALLING_BLOCK 0
+  - THORNS 0
+  - CUSTOM 0
+  - LAVA 0
+  - MELTING 0
+  - FIRE_TICK 0
+  - FIRE 0
+  - FALL 0
+  - SUFFOCATION 0
+  - PROJECTILE 0
+  - ENTITY_ATTACK 0
+  - CONTACT 0
+  Options:
+    UseThreatTable: true
+    FollowRange: 75
+    MaxCombatDistance: 1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    ReinforcementsChance: 0
+  Skills:
+  - potion{type=INVISIBILITY;l=1;d=9999} @self ~onSpawn
+  - potion{type=SPEED;l=2;d=999} @self ~onSpawn
+  - effect:particles{particle=fireworksSpark;amount=250;hs=1;vs=10;speed=.1} @self ~onTimer:5
+  - effect:particles{particle=hugeexplosion;amount=5;hs=.5;vs=3;speed=.1;y=20} @self ~onTimer:5
+  - effect:particles{particle=largeexplode;amount=50;hs=.5;vs=12;speed=.1} @self ~onTimer:5
+  - sound{s=mob.wither.idle;v=2} @self ~onTimer:5
+  - throw{velocity=25;velocityY=5} @PlayersInRadius{r=5} ~onTimer:5
+  - remove{delay=300} @self ~onSpawn
+
+SwampThing:
+  Mobtype: HUSK
+  Health: 20
+  Damage: 1
+  Despawn: true
+  Disguise:
+   Type: SwampThing
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - sound{s=entity.squid.squirt} @self
+  Equipment:
+    - STONE_AXE:0
+  Drops:
+  - exp 20 1
+  - ink_sac 1-2 1
+  - SwampSlime 1-2 1
+  - PrimitiveAxe 1 .1

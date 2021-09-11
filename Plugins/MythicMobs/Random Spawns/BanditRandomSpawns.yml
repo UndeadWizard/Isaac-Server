@@ -1,0 +1,28 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Thug:
+  Type: Thug
+  Worlds: world
+  Chance: 0.02
+  Priority: 128
+  Action: ADD
+  Conditions:
+  - outside true
+  - biome PLAINS
+  - notinregion relavia
+  - notinregion relavianislands
+  - not in region relaviancliffside
+Brute:
+  Type: Brute
+  Worlds: world
+  Chance: 0.01
+  Priority: 128
+  Action: ADD
+  Conditions:
+  - outside true
+  - biome PLAINS
+  - notinregion relavia
+  - notinregion relavianislands
+  - not in region relaviancliffside

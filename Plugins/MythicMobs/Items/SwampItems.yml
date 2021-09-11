@@ -1,0 +1,66 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+PrimitiveAxe:
+    Id: STONE_AXE
+    Data: 0
+    Amount: 1
+    Display: '&2Primitive Axe'
+    Lore:
+    - 'A crudley-made axe salvaged'
+    - 'from a &2Swamp Thing.'
+
+SwampSlime:
+    Id: SLIME_BALL
+    Data: 0
+    Amount: 1
+    Display: '&2Swamp Slime'
+    Lore:
+    - 'Its gooey.'
+
+TempAxe:
+    Id: IRON_AXE
+    Amount: 1
+    Display: '&3Temp-Axe'
+    Lore:
+    - 'A well made Axe covered in &3runes'
+    - 'foreign to you. The &3Tempest &5&oseemed'
+    - 'to be protective of it.'
+    Enchantments:
+    - DIG_SPEED:5
+    - DURABILITY:2
+    
+RustyTempick:
+    Id: IRON_PICKAXE
+    Amount: 1
+    Display: '&cRusty &fTempick'
+    Lore:
+    - 'A well made pickaxe covered in &crust&5&o. The'
+    - '&3Tempest &5&oseemed to be protective of it.'
+    Enchantments:
+    - DIG_SPEED:2
+    - DURABILITY:1
+
+Tempick:
+    Id: IRON_PICKAXE
+    Amount: 1
+    Display: '&3Tempick'
+    Lore:
+    - 'A well made pickaxe covered in &3runes'
+    - 'foreign to you. The &3Tempest &5&oseemed'
+    - 'to be protective of it.'
+    Enchantments:
+    - DIG_SPEED:5
+    - DURABILITY:2
+
+TempShovel:
+   Id: IRON_Shovel
+   Amount: 1
+   Display: '&3Temp-Shovel'
+   Lore:
+   - 'A well made Shovel covered in &3runes'
+   - 'foreign to you. The &3Tempest &5&oseemed'
+   - 'to be protective of it.'
+   Enchantments:
+   - LOOT_BONUS_BLOCKS:2
+   - DURABILITY:2

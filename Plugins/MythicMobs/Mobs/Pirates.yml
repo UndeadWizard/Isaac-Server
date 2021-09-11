@@ -1,0 +1,46 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Sailor:
+  Mobtype: HUSK
+  Health: 20
+  Damage: 1
+  Disguise:
+   Type: Sailor
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Equipment:
+    - IRON_SWORD:0
+  Drops:
+  - exp 20 1
+  - gold_nugget 3-5 1
+Boarder:
+  Mobtype: HUSK
+  Health: 50
+  Damage: 3
+  Disguise:
+   Type: Boarder
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Equipment:
+    - IRON_SWORD:0
+  Drops:
+  - exp 40 1
+  - gold_nugget 6-8 1

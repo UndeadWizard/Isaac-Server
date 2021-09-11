@@ -1,0 +1,16 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+GhulahsEmbrace:
+  Id: IRON_SWORD
+  Display: "&7[&fGhulah's &7Embrace]"
+  Lore:
+  - "&7Poison III"
+  - "&5Ripped from the 'Umm Ghulah"
+  - '&fSharp as a razor'
+  - '&5It oozes with a Violet Liquid'
+  Enchantments:
+  - DAMAGE_ARTHROPODS:2
+  - DAMAGE_UNDEAD:3
+  - DURABILITY:3

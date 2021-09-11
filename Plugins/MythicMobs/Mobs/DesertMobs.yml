@@ -1,0 +1,144 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Sandstrider:
+  Mobtype: spider
+  Health: 20
+  Damage: 4
+  Disguise:
+    Type: cave_spider
+  Options:
+    AlwaysShowName: false
+    FollowRange: 45
+    MovementSpeed: .35
+    PreventRenaming: true
+    PreventOtherDrops: true
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Skills:
+  - potion{type=POISON;d=100;l=1} @target ~onAttack
+  - potion{type=CONFUSION;d=150;l=1} @target ~onAttack
+  Drops:
+  - 30 2-5 1
+  - 375 1-2 1
+  - 376 1-2 1
+Sandmanta:
+  Type: PHANTOM
+  Display: '&eSandmanta'
+  Health: 100
+  Damage: 0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 fleeplayers
+  Options:
+    Size: 50
+    MovementSpeed: 0.05
+    PreventOtherDrops: true
+    PreventSunburn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=PoisonSweat} 0.2
+  - summon{type=Babymanta;amount=2;radius=0;delay=40} @self
+
+Babymanta:
+  Type: PHANTOM
+  Health: 10
+  Damage: 0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    Size: 1
+    MovementSpeed: 0.5
+    PreventOtherDrops: true
+    PreventSunburn: true
+    MaxCombatDistance: 200
+  Skills:
+  - remove{delay=750} @self ~onSpawn
+
+SpiderQueen:
+  Mobtype: spider
+  Health: 350
+  Damage: 4
+  BossBar:
+    Enabled: true
+    Title: 'Spider Queen'
+    Range: 20
+    Color: RED
+    Style: SOLID
+  Disguise:
+    Type: SpiderQueen
+  Options:
+    MaxCombatDistance: 8
+    AlwaysShowName: false
+    FollowRange: 45
+    MovementSpeed: .2
+    PreventRenaming: true
+    PreventOtherDrops: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 randomstroll
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Skills:
+  - skill{s=WebBlast} @target ~onTimer:80
+  - skill{s=SpiderEggs} @self ~onDamaged =300 1 
+  - sendtitle{title="&cCome my children!";d=40} @PlayersInRadius{r=30} ~onDamaged =300 1
+  - skill{s=SpiderEggs} @self ~onDamaged =250 1 
+  - sendtitle{title="&cCome my children!";d=40} @PlayersInRadius{r=30} ~onDamaged =250 1
+  - skill{s=GreaterSpiderEggs} @self ~onDamaged =200 1 
+  - sendtitle{title="&cCome my children!";d=40} @PlayersInRadius{r=30} ~onDamaged =200 1
+  - skill{s=GreaterSpiderEggs} @self ~onDamaged =150 1 
+  - sendtitle{title="&cCome my children!";d=40} @PlayersInRadius{r=30} ~onDamaged =150 1
+  - skill{s=GreaterSpiderEggs} @self ~onDamaged =100 1 
+  - sendtitle{title="&cCome my children!";d=40} @PlayersInRadius{r=30} ~onDamaged =100 1
+  - skill{s=GreaterSpiderEggs} @self ~onDamaged =50 1 
+  - sendtitle{title="&cCome my children!";d=40} @PlayersInRadius{r=30} ~onDamaged =50 1
+  Drops:
+  - 30 2-5 1
+  - 375 1-2 1
+  - 376 1-2 19
+
+SpiderChildren:
+  Mobtype: spider
+  Health: 10
+  Damage: 1
+  Disguise:
+    Type: cave_spider
+  Options:
+    AlwaysShowName: false
+    FollowRange: 45
+    MovementSpeed: .4
+    PreventRenaming: true
+    PreventOtherDrops: true
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Skills:
+  - potion{type=CONFUSION;d=5;l=5} @target ~onAttack
+  Drops:
+  - string 2-5 1
+  - 375 1-2 1
+  
+SpiderGuardian: 
+  Mobtype: spider
+  Health: 40
+  Damage: 6
+  Options:
+    AlwaysShowName: false
+    FollowRange: 45
+    MovementSpeed: .35
+    PreventRenaming: true
+    PreventOtherDrops: true
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Skills:
+  - potion{type=CONFUSION;d=150;l=1} @target ~onAttack
+  Drops:
+  - 30 2-5 1
+  - 375 1-2 1

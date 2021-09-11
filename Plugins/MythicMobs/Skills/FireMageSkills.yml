@@ -1,0 +1,82 @@
+firemagecircle:
+  Conditions:
+  - targetwithin{d=20}
+  Skills:
+  - effect:particlering{particle=lava;radius=1;points=12;amount=1;hS=1;vS=0} @Self
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=1}
+  - delay 2
+  - effect:particlering{particle=lava;radius=2;points=12;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=2}
+  - delay 2
+  - effect:particlering{particle=lava;radius=3;points=14;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=3}
+  - delay 2
+  - effect:particlering{particle=lava;radius=4;points=14;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=4}
+  - delay 2
+  - effect:particlering{particle=lava;radius=5;points=16;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=5}
+  - delay 2
+  - effect:particlering{particle=lava;radius=6;points=16;amount=1;hS=1;vS=0} @Self
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=6}
+  - delay 2
+  - effect:particlering{particle=lava;radius=7;points=18;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=7}
+  - delay 2
+  - effect:particlering{particle=lava;radius=8;points=18;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=8}
+  - delay 2
+  - effect:particlering{particle=lava;radius=9;points=20;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=9}
+  - delay 2
+  - effect:particlering{particle=lava;radius=10;points=20;amount=1;hS=1;vS=0} @Self 
+  - sound{s=entity.blaze.hurt;p=0.1;v=3.0} @self
+  - damage{a=2} @PIR{r=10}
+  - delay 2
+  
+firemagepassive:
+  Skills:
+  - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=1;vS=0} @Self 
+  - effect:particlering{particle=flame;radius=3;points=32;amount=1;hS=1;vS=0} @Self 
+  - effect:particlering{particle=flame;radius=2;points=32;amount=1;hS=1;vS=0} @Self 
+  - effect:particlering{particle=flame;radius=1;points=32;amount=1;hS=1;vS=0} @Self 
+  - damage{a=4} @PIR{r=4}
+  
+firemageshoot:
+  Conditions:
+  - targetwithin{d=20}
+  Skills:
+  - projectile{ot=fmg-Tick;oh=fmg-Hit;v=8;i=1;hR=1;vR=1;in=0.75;hO=0;mr=30} @PIR{r=40}
+  - effect:sound{s=entity.blaze.shoot;v=0.8;p=0.01} @self
+fmg-Tick:
+  Skills:
+  - effect:particles{p=flame;amount=6;hSpread=0.1;vSpread=0.1;speed=0.1;yOffset=0} @origin
+fmg-Hit:
+  Skills:
+  - ignite{ticks=100} @PlayersNearOrigin{r=2}   
+  - damage{a=8} @Target
+  
+firemagespin:
+  Skills:
+  - effect:spin{duration=10;velocity=30} @self
+  - projectile{ot=fmg-Tick;oh=fmg-Hit;v=8;i=1;hR=1;vR=1;in=0.75;hO=0;mr=30} @PIR{r=40}
+  - effect:sound{s=entity.blaze.shoot;v=0.8;p=0.01} @self
+  - projectile{ot=fmg-Tick;oh=fmg-Hit;v=8;i=1;hR=1;vR=1;in=0.75;hO=90;mr=30} @PIR{r=40}
+  - projectile{ot=fmg-Tick;oh=fmg-Hit;v=8;i=1;hR=1;vR=1;in=0.75;hO=180;mr=30} @PIR{r=40}
+  - projectile{ot=fmg-Tick;oh=fmg-Hit;v=8;i=1;hR=1;vR=1;in=0.75;hO=270;mr=30} @PIR{r=40}
+fmg-Tick:
+  Skills:
+  - effect:particles{p=flame;amount=6;hSpread=0.1;vSpread=0.1;speed=0.1;yOffset=0} @origin
+fmg-Hit:
+  Skills:
+  - ignite{ticks=100} @PlayersNearOrigin{r=2}   
+  - damage{a=8} @Target

@@ -1,0 +1,45 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Faceless:
+  Mobtype: HUSK
+  Health: 40
+  Display: '&fFaceless'
+  Damage: 2
+  ShowHealth: true
+  Despawn: true
+  Disguise:
+   Type: Faceless
+  Options:
+    UseThreatTable: true
+    MovementSpeed: 0.2
+    FollowRange: 100
+    Silent: true
+    PreventRandomEquipment: true
+  Skills:
+    - skill{skill=AuraDrain} @self ~onTimer:50
+    - skill{skill=FireBall} @target ~onTimer:100
+  KillMessages:
+  - '<target.name> had their face stolen by a &f<mob.name>'
+  Drops:
+  - exp 250 1
+Unforgiven:
+  Mobtype: HUSK
+  Health: 20
+  Damage: 1
+  Despawn: true
+  Disguise:
+    Type: Skeleton
+  Options:
+    MovementSpeed: 0.4
+    FollowRange: 120
+    Silent: true
+    PreventRandomEquipment: true
+    
+  KillMessages:
+  - '<target.name> was overwhelmed by the Unforgiven'
+  Equipment:
+    - IRON_SWORD:0
+  Drops:
+  - exp 100 1

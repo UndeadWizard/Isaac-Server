@@ -1,0 +1,9 @@
+﻿
+TrapFurnaceExplosion:
+  Cooldown: 10
+  Skills:
+  - effect:sound{s=entity.tnt.primed;v=1;p=0} @self
+  - delay 40
+  - explosion{yield=20;bd=true;f=true} @self
+  - throw{velocity=30;velocityY=10} @LivingEntitiesInRadius{r=5}
+  - remove{delay=0} @self

@@ -1,0 +1,39 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+EldritchBlast:
+    Skills:
+    - projectile{oT=EldritchBlast-Tick;oH=EldritchBlast-Hit;i=1;velocity} @Target
+EldritchBlast-Tick:
+  Skills:
+  - effect:particles{p=large_smoke;amount=1;speed=0;hs=.3;vs=.3} @origin
+  - effect:particles{p=witch;amount=30;speed=100;hs=.3;vs=.3} @origin
+EldritchBlast-Hit:
+  Skills:
+  - damage{a=10}
+  - throw{velocitiy=5;velocityY=2}
+RaiseDead:
+  Skills:
+  - summon{mob=Broken;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=Broken;amount=2;noise=3} @Self
+GreaterRaiseDead:
+  Skills:
+  - summon{mob=Broken;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=Broken;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=Broken;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=Broken;amount=2;noise=3} @Self
+EldritchPush:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 5
+  Skills:
+  - effect:sound{s=mob.endermen.portal;volume=1.0;pitch=0.5}
+  - delay 1
+  - damage{amount=1} @PlayersInRadius{r=5}
+  - throw{velocity=5;velocityY=2;velocityX=12} @PlayersInRadius{r=5}
+  - effect:particles{p=portal;amount=10;speed=20;hs=.3;vs=.3} @origin

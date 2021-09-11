@@ -1,0 +1,20 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+TempestDrops:
+  Conditions:
+  - playerwithin 40
+  Drops:
+  - TempestItemDrops 1
+  - experience 400
+  - heroesexp 200
+TempestItemDrops:
+  MinItems: 1
+  MaxItems: 3
+  Drops:
+  - RustyTempick 1 .6
+  - Tempick 1 .15
+  - TempAxe 1 .15
+  - DIAMOND 48-64 .6
+  - TempShovel 1 .3

@@ -1,0 +1,14 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+SwampThing:
+  Type: SwampThing
+  Worlds: world
+  Chance: 0.08
+  Priority: 128
+  Action: ADD
+  Conditions:
+  - outside true
+  - biome swamp  
+  - notinregion tempestruins

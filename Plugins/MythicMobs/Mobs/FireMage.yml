@@ -1,0 +1,44 @@
+FireMage:
+  Type: HUSK
+  Disguise:
+    Type: player
+    Skin: ItsLarry
+    Player: "&6Fire Mage"
+  Display: '&6Fire Mage'
+  Health: 50
+  Damage: 0
+  Equipment:
+  Skills:
+  # SOUNDS
+  - sound{s=entity.blaze.ambient;p=0.6;v=1.0} @self ~onTimer:200 0.5
+  - sound{s=entity.blaze.hurt;p=0.2;v=1.0} @self ~onDamaged
+  - sound{s=entity.wither.hurt;p=0.1.0;v=0.4} @self ~onDamaged
+  
+  # ABILITIES
+  - skill{s=firemagepassive} ~onTimer:100 
+  - skill{s=firemageshoot}  @Target ~onTimer:60 0.8 
+  - skill{s=firemagecircle}  @Target ~onTimer:180 0.5 
+  - skill{s=firemagespin}  @Target ~onTimer:360 0.6 
+  - effect:particles{p=mobSpell;color=#FF0000;amount=4;hS=0.45;vS=1.2;speed=0;y=1} @self ~onTimer:5
+  Drops:
+  - exp 80-100
+  AIGoalSelectors:
+  - 0 clear
+  - 1 randomstroll
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    PreventRandomEquipment: true
+    AlwaysShowName: false
+    MovementSpeed: 0.12
+    MaxCombatDistance: 20
+    PreventOtherDrops: true
+    Silent: True
+    AttackSpeed: 1
+  DamageModifiers:
+  - LAVA 0
+  - MELTING 0
+  - FIRE_TICK 0
+  - FIRE 0

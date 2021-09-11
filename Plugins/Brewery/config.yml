@@ -1,0 +1,997 @@
+# config for Brewery.jar
+
+
+# -- Settings --
+# Defaults are written in []
+
+# Languagefile to be used (found in plugins/Brewery/languages)
+language: en
+
+# If the player wakes up at /home when logging in after excessive drinking (/home plugin must be installed!) [true]
+enableHome: true
+
+# Type of the home-teleport: ['cmd: home']
+# bed = Player will be teleported to his spawn bed
+# 'cmd: home' = /home will be executed by the player. He has to have permissions for it without any delay!
+# 'cmd: spawn' = /spawn will be executed by the player.
+# 'cmd: whatever' = /whatever will be executed by the player.
+homeType: 'cmd: home'
+
+# If the player "wakes up" at a random place when offline for some time while drinking (the places have to be defined with '/brew Wakeup add' through an admin)
+# The Player wakes at the nearest of two random places of his world [true]
+enableWake: true
+
+# If the Player may have to try multiple times when logging in while extremely drunk [true]
+enableLoginDisallow: true
+
+# If the Player faints shortly (gets kicked from the server) if he drinks the max amount of alcohol possible [false]
+enableKickOnOverdrink: false
+
+# If the Player vomits on high drunkeness (drops item defined below) [true]
+# The item can not be collected and stays on the ground until it despawns.
+enablePuke: true
+
+# Item that is dropped multiple times uncollectable when puking [Soul_Sand]
+pukeItem: Soul_Sand
+
+# Time in seconds until the pukeitems despawn, (mc default is 300 = 5 min) [60]
+# If the item despawn time was changed in the spigot.yml, the pukeDespawntime changes as well.
+pukeDespawntime: 60
+
+# Consumable Item/strength. Decreases the alcohol level by <strength> when consumed. (list)
+drainItems:
+  - Bread/4
+  - Milk_Bucket/2
+
+# Time (in days) that drunkeness-data stays in memory after a player goes offline, to apply hangover etc. [7]
+hangoverDays: 7
+
+# Color the Item information (lore) depending on quality while it is 1. in a barrel and/or 2. in a brewing stand [true, true]
+colorInBarrels: true
+colorInBrewer: true
+
+# Always show the 1-5 stars on the item depending on the quality. If false, they will only appear when brewing [true]
+alwaysShowQuality: true
+
+# Always show the alcohol content on the item. If false, it will only show in the brewing stand [false]
+alwaysShowAlc: false
+
+# If a Large Barrel can be opened by clicking on any of its blocks, not just Spigot or Sign. This is always true for Small Barrels. [false]
+openLargeBarrelEverywhere: false
+
+# How many Brewery drinks can be put into the Minecraft barrels [6]
+maxBrewsInMCBarrels: 6
+
+# The used Ingredients and other brewing-data is saved to all Brewery Items. To prevent
+# hacked clients from reading what exactly was used to brew an item, the data can be encoded/scrambled.
+# This is a fast process to stop players from hacking out recipes, once they get hold of a brew.
+# Only drawback: brew items can only be used on another server with the same encodeKey.
+# So enable this if you want to make recipe cheating harder, but don't share any brews by world download, schematics, or other means. [true]
+enableEncode: true
+encodeKey: -1948101330918754147
+
+# Enable checking for Updates, Checks the curseforge api for updates to Brewery [true]
+# If an Update is found a Message is logged on Server-start and displayed to OPs joining the game
+updateCheck: true
+
+# Autosave interval in minutes [3]
+autosave: 3
+
+# Show debug messages in log [false]
+debug: false
+
+# Config Version
+version: '2.0'
+
+
+
+# -- Define custom items --
+# The defined id can then be used in recipes
+
+#  matchAny: true if it is already enough if one of the info matches
+#  material: Which type the item has to be
+#  name: Which name the item has to be (Formatting codes possible: such as &6)
+#  lore: What has to be in the lore of the item
+
+customItems:
+  # Three Example Items
+  ex-item:
+    # A Barrier item called Wall and has the given line in its lore
+    material: Barrier
+    name: 'Wall'
+    lore:
+      - '&7Very well protected'
+
+  ex-item2:
+    # Using matchAny only one of the following has to match.
+    # In this case on of the door types, or an item called Beechwood Door, or an item with 'A door' in its lore
+    matchAny: true
+    material:
+      - Acacia_Door
+      - Oak_Door
+      - Spruce_Door
+    name:
+      - 'Beechwood Door'
+    lore:
+      - 'A door'
+
+  rasp:
+    name: '&cRaspberry'
+
+  blue-flowers:
+    matchAny: true
+    material:
+      - cornflower
+      - blue_orchid
+
+
+# -- Ingredients in the Cauldron --
+# Which Ingredients are accepted by the Cauldron and the base potion resulting from them
+
+ # name: Name of the base potion coming out of the Cauldron (Formatting codes possible: such as &6)
+ # ingredients: List of 'material/amount'
+ #   With an item in your hand, use /brew ItemName to get its material for use in a recipe
+ #   (Item-ids instead of material are not supported by bukkit anymore and will not work)
+ #   A list of materials can be found here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+ # color: Color of the potion from a cauldron. Defaults to CYAN
+ #   Usable Colors: DARK_RED, RED, BRIGHT_RED, ORANGE, YELLOW, PINK, PURPLE, BLUE, CYAN, WATER, TEAL, OLIVE, GREEN, LIME, BLACK, GREY, BRIGHT_GREY, WHITE
+ #   Or RGB colors (hex: for example '99FF33') (with '') (search for "HTML color" on the internet)
+ # lore: List of additional text on the base potion. (Formatting codes possible: such as &6)
+
+cauldron:
+  # Example with all possible entries
+  ex:
+    name: Example
+    ingredients:
+      - Bedrock/2
+      - Diamond
+    color: BLACK
+    lore:
+      - An example for a Base Potion
+      - This is how it comes out of a Cauldron
+
+  # -- One Ingredient: --
+  wheat:
+    name: Fermented wheat
+    ingredients: Wheat
+
+  sugarcane:
+    name: Sugar brew
+    ingredients: Sugar_Cane
+    color: 'f1ffad' # yellowish green
+
+  sugar:
+    name: Sugarwater
+    ingredients: Sugar
+
+  apple:
+    name: Apple must
+    ingredients: Apple
+
+  berries:
+    name: Grape must
+    ingredients: Sweet_Berries
+    color: RED
+
+  potato:
+    name: Potatomash
+    ingredients: Potato
+
+  grass:
+    name: Boiled herbs
+    ingredients: Grass
+    color: '99ff66' # bright green
+
+  rmushroom:
+    name: Mushroom brew
+    ingredients: Red_Mushroom
+    color: 'ff5c33' # amber red
+
+  bmushroom:
+    name: Mushroom brew
+    ingredients: Brown_Mushroom
+    color: 'c68c53' # brighter brown
+
+  cocoa:
+    name: Chocolately brew
+    ingredients: Cocoa_Beans
+    color: '804600' # mocca
+
+  milk:
+    name: Milky water
+    ingredients: Milk_Bucket
+    color: BRIGHT_GREY
+
+  bl_flow:
+    name: Blueish brew
+    ingredients: blue-flowers
+    color: '0099ff' # sky blue
+
+  cactus:
+    name: Agave brew
+    ingredients: cactus
+    color: '00b300' # cactus green
+
+  poi_potato:
+    name: Poisonous Broth
+    ingredients: Poisonous_Potato
+
+  egg:
+    name: Sticky brew
+    ingredients: Egg
+
+
+  oak_sapling:
+    name: Stringy hebry broth
+    ingredients: Oak_Sapling
+
+  vine:
+    name: Boiled herbs
+    ingredients: vine
+    color: '99ff66' # bright green
+
+  rot_flesh:
+    name: Foul pest
+    ingredients: Rotten_Flesh
+    color: '263300' # brown green
+
+  melon:
+    name: Melon juice
+    ingredients: melon_slice
+
+  wheat_seeds:
+    name: Bitter brew
+    ingredients: Wheat_Seeds
+
+  melon_seeds:
+    name: Bitter brew
+    ingredients: Melon_Seeds
+
+  pumpkin_seeds:
+    name: Bitter brew
+    ingredients: Pumpkin_Seeds
+
+  bone_meal:
+    name: Bony Brew
+    ingredients: bone_meal
+    color: BRIGHT_GREY
+
+  cookie:
+    name: Chocolately sap
+    ingredients: Cookie
+    color: '804600' # mocca
+
+  fer_spid_eye:
+    name: Fermented Eye
+    ingredients: Fermented_Spider_Eye
+
+  ghast_tear:
+    name: Sad brew
+    ingredients: ghast_tear
+
+  snowball:
+    name: Icewater
+    ingredients: Snowball
+
+  Gold_Nugget:
+    name: Glistering brew
+    ingredients: Gold_Nugget
+    color: 'ffd11a' # gold
+
+  glowstone_dust:
+    name: Glowing brew
+    ingredients: Glowstone_Dust
+    color: 'ffff33' # bright yellow
+
+  # -- Multiple Ingredients: --
+  applemead_base:
+    name: Apple-Sugar brew
+    ingredients:
+      - Sugar_Cane/3
+      - Apple
+    color: 'e1ff4d' # greenish yellow
+
+  poi_grass:
+    name: Boiled acidy herbs
+    ingredients:
+      - Grass
+      - Poisonous_Potato
+    color: '99ff66' # bright green
+
+  juniper:
+    name: Juniper brew
+    ingredients:
+      - blue-flowers
+      - wheat
+    color: '00ccff' # aqua
+
+  gin_base:
+    name: Fruity juniper brew
+    ingredients:
+      - blue-flowers
+      - wheat
+      - apple
+    color: '66e0ff' # lighter aqua
+
+  eggnog_base:
+    name: Smooth egg mixture
+    ingredients:
+      - egg
+      - sugar
+      - milk_bucket
+    color: 'ffecb3' # yellow-orange
+
+
+
+# -- Recipes for Potions --
+
+# name: Different names for bad/normal/good (Formatting codes possible: such as &6)
+# ingredients: List of 'material/amount'
+#   With an item in your hand, use /brew ItemName to get its material for use in a recipe
+#   (Item-ids instead of material are not supported by bukkit anymore and will not work)
+#   A list of materials can be found here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+#   Plugin items with 'plugin:id' (Currently supporting ExoticGarden, Slimefun, MMOItems, Brewery)
+#   Or a custom item defined above
+# cookingtime: Time in real minutes ingredients have to boil
+# distillruns: How often it has to be distilled for full alcohol (0=without distilling)
+# distilltime: How long (in seconds) one distill-run takes (0=Default time of 40 sec) MC Default would be 20 sec
+# wood: Wood of the barrel 0=any 1=Birch 2=Oak 3=Jungle 4=Spruce 5=Acacia 6=Dark Oak
+#   The Minecraft barrel is made of oak
+# age: Time in Minecraft-days, the potion has to age in a barrel 0=no aging
+# color: Color of the potion after distilling/aging.
+#   Usable Colors: DARK_RED, RED, BRIGHT_RED, ORANGE, YELLOW, PINK, PURPLE, BLUE, CYAN, WATER, TEAL, OLIVE, GREEN, LIME, BLACK, GREY, BRIGHT_GREY, WHITE
+#   Or RGB colors (hex: for example '99FF33') (with '') (search for "HTML color" on the internet)
+# difficulty: 1-10 accuracy needed to get good quality (1 = unaccurate/easy, 10 = very precise/hard)
+# alcohol: Absolute amount of alcohol 0-100 in a perfect potion (will be added directly to the player, where 100 means fainting)
+# lore: List of additional text on the finished brew. (Formatting codes possible: such as &6)
+#   Specific lore for quality possible, using + bad, ++ normal, +++ good, added to the front of the line.
+# servercommands: List of Commands executed by the Server when drinking the brew
+# playercommands: List of Commands executed by the Player when drinking the brew
+# drinkmessage: Chat-message to the Player when drinking the Brew
+# drinktitle: Title on Screen to the Player when drinking the Brew
+# effects: List of effect/level/duration  Special potion-effect when drinking, duration in sek.
+#   Possible Effects: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
+#   Level or Duration ranges may be specified with a "-", ex. 'SPEED/1-2/30-40' = lvl 1 and 30 sec at worst and lvl 2 and 40 sec at best
+#   Ranges also work high-low, ex. 'POISON/3-1/20-5' for weaker effects at good quality.
+#   Highest possible Duration: 1638 sec. Instant Effects dont need any duration specified.
+
+recipes:
+  #  Example Recipe with every possible entry first:
+  ex:
+    name: Bad Example/Example/Good Example
+    ingredients:
+      - Diamond/1
+      - Spruce_Planks/8
+      - Bedrock/1
+      - Brewery:Wheatbeer/2
+#      - ExoticGarden:Grape/3
+      - ex-item/4
+    cookingtime: 3
+    distillruns: 2
+    distilltime: 60
+    wood: 4
+    age: 11
+    color: DARK_RED
+    difficulty: 3
+    alcohol: 14
+    lore:
+      - This is an examble brew
+      - ++Just a normal Example
+      - This text would be on the brew
+      - + Smells disgusting
+      - ++ Smells alright
+      - +++ Smells really good
+    servercommands:
+      - weather clear
+    playercommands:
+      - homes
+    drinkmessage: Tastes good
+    drinktitle: Warms you from inside
+    effects:
+      - FIRE_RESISTANCE/20
+      - HEAL/1
+      - WEAKNESS/2-3/50-60
+      - POISON/1-0/20-0
+
+  relavianred:
+    name: Foul Red/Cheap Red Wine/Relavian Red
+    ingredients:
+      - Sweet_Berries/4
+      - Apple/1
+      - Honey_Bottle/1
+    cookingtime: 3
+    distillruns: 0
+    wood: 1
+    age: 12
+    color: DARK_RED
+    difficulty: 9
+    alcohol: 8
+    lore:
+      - + A foul wine with a hint of dirt
+      - ++ An average wine that resembles the taste of Relavian Red
+      - +++ An excellent red wine from the Relavian wineyards.
+      - + &8Smells disgusting
+      - ++ &8Smells alright
+      - +++ &8A fine, earthy scent.
+
+  relavianwhite:
+    name: Foul White/Cheap White Wine/Relavian White
+    ingredients:
+      - Sweet_Berries/4
+      - Melon_Slice/2
+      - Bone_Meal/1
+    cookingtime: 3
+    distillruns: 0
+    wood: 1
+    age: 12
+    color: 'E0EDC1' #light green
+    difficulty: 9
+    alcohol: 8
+    lore:
+      - + A foul wine with a hint of sugar
+      - ++ An average wine that resembles the taste of Relavian White
+      - +++ An excellent white wine from the Relavian wineyards.
+      - + &8Smells disgustingly sweet
+      - ++ &8Smells alright
+      - +++ &8A fine, fruity scent.
+
+  relavianbeer:
+    name: Skunky Beer/Relavian Beer/Fine Relavian Beer
+    ingredients:
+      - Wheat/3
+      - Honey_Bottle/1
+    cookingtime: 8
+    distillruns: 0
+    wood: 2
+    age: 5
+    color: 'ffb84d' # Orange
+    difficulty: 3
+    alcohol: 6
+    lore:
+      - + &8Disgusting, but gets you drunk
+      - ++&8A simple beer
+      - +++ &8Refreshing and light
+
+  relaviancider:
+    name: Skunky Cider/Relavian Cider/Fine Relavian Cider
+    ingredients:
+      - Apple/1
+      - Sweet_Berries/2
+    cookingtime: 8
+    distillruns: 0
+    wood: 2
+    age: 6
+    color: 'C94A65' # Pink
+    difficulty: 5
+    alcohol: 4
+    lore:
+      - + &8Disgustingly sweet and barely gets you drunk
+      - ++ &8A simple cider with taste of berries
+      - +++ &8A refreshing cider with a hint of berries
+
+  carlborianred:
+    name: Foul Wine/Boring Wine/Fine Carlborian Red
+    ingredients:
+      - Sugar_Cane/4
+      - Sweet_Berries/3
+    cookingtime: 5
+    distillruns: 0
+    wood: 5
+    age: 8
+    color: '650013' # Dark Red-Brown
+    difficulty: 7
+    alcohol: 11
+    lore:
+      - + &8A disgustingly sweet wine
+      - ++ &8A dull, but sweet wine
+      - +++ &8A fine Carlborian red wine, made of the finest grapes.
+
+  carlboriancider:
+    name: Skunky Cider/Carlborian Cider/Fine Carlborian cider
+    ingredients:
+      - Wheat/2
+      - Carrots/2
+      - Sweet_Berries/1
+    cookingtime: 4
+    distillruns: 0
+    wood: 5
+    age: 4
+    color: 'FEAA46'
+    difficulty: 4
+    alcohol: 4
+    lore:
+      - + &8A disgusting cider, reeking of carrots
+      - ++ &8A carlborian cider, pretty tasteless.
+      - +++ &8A carlborian cider in its prime, delightful taste.
+
+  carlborianrum:
+    name: Bitter Rum/Spicy Rum/Carlborian Rum
+    ingredients:
+      - Sugar_Cane/8
+    cookingtime: 6
+    distillruns: 2
+    distilltime: 30
+    wood: 5
+    age: 15
+    color: DARK_RED
+    difficulty: 6
+    alcohol: 30
+    lore:
+      - + &8Too bitter to drink
+      - ++ &8Spiced by the barrel
+      - +++ &8Spiced Gold
+
+  tequila:
+    name: Bad Tequila/Tequila/Fine Tequila
+    ingredients:
+      - bamboo/16
+    cookingtime: 5
+    distillruns: 2
+    color: 'f5f07e' # Green-Orange
+    difficulty: 8
+    wood: 5
+    age: 12
+    alcohol: 20
+    lore:
+      - + &8Only the brave drink this stuff
+      - ++ &8An average shot of tequila
+      - +++ &8The finest tequila from carlboro
+
+  sarkishbeer:
+    name: Disgusting Beer/Sarkish Beer/Golden Sarkish Beer
+    ingredients:
+      - Wheat/6
+    cookingtime: 6
+    distillruns: 0
+    wood: 4
+    age: 6
+    color: ORANGE
+    difficulty: 2
+    alcohol: 12
+    lore:
+      - + &8Disgusting, but gets you drunk quickly
+      - ++ &8Decent beer, gets you drunk fast
+      - +++ &8A golden beer, glowing with vigor
+
+  whiskey:
+    name: Unsightly Whiskey/Whiskey/Sarkish Whiskey
+    ingredients:
+      - Wheat/10
+    cookingtime: 10
+    distillruns: 2
+    distilltime: 30
+    wood: 6
+    age: 18
+    color: ORANGE
+    difficulty: 10
+    alcohol: 20
+    lore:
+      - + &8Poor quality whiskey, might be piss
+      - ++ &8A normal whiskey, made of average grain
+      - +++ &8A fine Sarkish whiskey, made by the best brewers in the land.
+
+  vodka:
+    name: Lousy Vodka/Vodka/Sarkish Vodka
+    ingredients:
+      - Potato/10
+    cookingtime: 15
+    distillruns: 3
+    wood: 6
+    age: 0
+    color: WHITE
+    difficulty: 4
+    alcohol: 30
+    lore:
+      - + &8Poor quality vodka, could be water
+      - ++ &8A normal vodka, completely unremarkable
+      - +++ &8The finest Sarkish vodka, aged in handcrafted barrels.
+
+  sarkishrum:
+    name: Bitter Rum/Average Rum/Sarkish Rum
+    ingredients:
+      - Potato/6
+      - Wheat/2
+    cookingtime: 6
+    distillruns: 2
+    distilltime: 30
+    wood: 4
+    age: 15
+    color: DARK_RED
+    difficulty: 6
+    alcohol: 30
+    lore:
+      - + &8Too bitter to drink
+      - ++ &8An unremarkable sarkish rum
+      - +++ &8The finest sarkish rum, that only the rich can afford.
+
+
+
+# I don't want to add more Recipes to the default config, as they would be public and viewable by users to cheat.
+# It is up to the Serveradmin to change and add Recipes, so players cannot cheat from the default config.
+# Some suggestions for recipes you could use:
+
+  # g_vodka:
+  #   name: 'Rancid Vodka/&6Golden Vodka/&6Shimmering Golden Vodka'
+  #   ingredients:
+  #     - Potato/10
+  #     - Gold_Nugget/2
+  #   cookingtime: 18
+  #   distillruns: 3
+  #   age: 0
+  #   color: ORANGE
+  #   difficulty: 6
+  #   alcohol: 20
+  #   effects:
+  #     - WEAKNESS/28
+  #     - POISON/4
+
+  # fire_whiskey:
+  #   name: Powdery Whiskey/Burning Whiskey/Blazing Whiskey
+  #   ingredients:
+  #     - Wheat/10
+  #     - Blaze_Powder/2
+  #   cookingtime: 12
+  #   distillruns: 3
+  #   distilltime: 55
+  #   wood: 4
+  #   age: 18
+  #   color: ORANGE
+  #   difficulty: 7
+  #   alcohol: 28
+  #   drinkmessage: 'You get a burning feeling in your mouth'
+
+# Without Alcohol:
+
+  # hot_choc:
+  #   name: Hot Chocolate
+  #   ingredients:
+  #     - cookie/3
+  #   cookingtime: 2
+  #   color: DARK_RED
+  #   difficulty: 2
+  #   effects:
+  #     - FAST_DIGGING/40
+
+  # iced_coffee:
+  #   name: Watery Coffee/Iced Coffee/Strong Iced Coffee
+  #   ingredients:
+  #     - cookie/8
+  #     - snowball/4
+  #     - milk_bucket/1
+  #   cookingtime: 1
+  #   color: BLACK
+  #   difficulty: 4
+  #   effects:
+  #     - REGENERATION/30
+  #     - SPEED/10
+
+
+# More Recipe ideas:
+# Dandelion Liquor
+# Beetroot Spirit,
+# Poppy Liquor: Macum/Grand Poppy,
+# Bamboo Liquor: Chu Yeh Ching,
+# Cachaca,
+# Cognac,
+# Sake,
+# Buorbon,
+# Moonshine,
+# Different Wines,
+# Brandy,
+# Amaretto,
+# etc. as well as variations like,
+# Pumpkin Spice Beer,
+# Melon Vodka
+
+# There are a lot of items in Minecraft like Vines and items added by plugins that would make great ingredients.
+
+
+# -- Plugin Compatibility --
+
+# Enable checking of other Plugins (if installed) for Barrel Permissions [true]
+useWorldGuard: true
+useLWC: true
+useGriefPrevention: true
+useGMInventories: true
+
+# Enable the Logging of Barrel Inventories to LogBlock [true]
+useLogBlock: true
+
+
+# -- Chat Distortion Settings --
+
+# If written Chat is distorted when the Player is Drunk, so that it looks like drunk writing
+# How much the chat is distorted depends on how drunk the Player is
+# Below are settings for what and how changes in chat occur
+enableChatDistortion: true
+
+# Log to the Serverlog what the player actually wrote, before his words were altered [false]
+logRealChat: false
+
+# Text after specified commands will be distorted when drunk (list) [- /gl]
+distortCommands:
+- /gl
+- /global
+- /fl
+- /s
+- /letter
+- /g
+- /l
+- /lokal
+- /local
+- /mail send
+- /m
+- /msg
+- /w
+- /whisper
+- /reply
+- /r
+- /t
+- /tell
+
+# Distort the Text written on a Sign while drunk [false]
+distortSignText: false
+
+# Enclose a Chat text with these Letters to bypass Chat Distortion (Use "," as Separator) (list) [- '[,]']
+# Chat Example: Hello i am drunk *I am testing Brewery*
+distortBypass:
+- '*,*'
+- '[,]'
+
+# words: Words and letters that will be altered when chatting while being drunk.
+# Will be processed from first to last and a written sentece is altered in that order.
+
+# replace: Word or letter to be replaced. (Special: "-space": replaces space, "-random": insert into random position, "-all": everything, "-start": At Beginning, "-end": At the End.)
+# to: What to replace it with.
+# pre: Words and Letters before the wanted word (split with ",")
+# match: true = one of the "pre"-Words has to be before the wanted Word,  false = none of the "pre" Words is allowed before the wanted Word
+# alcohol: 1-100 minimum drunkeness after which this word ist replaced
+# percentage: Probability of replacing a Word in percent
+
+words:
+-  replace: s
+   to: sh
+   percentage: 90
+   alcohol: 30
+
+-  replace: ch
+   to: sh
+   pre: u,s,o,a
+   match: false
+   alcohol: 10
+   percentage: 70
+
+-  replace: h
+   to: hh
+   pre: sch,h,t
+   match: false
+   percentage: 60
+   alcohol: 20
+
+-  replace: th
+   to: thl
+   percentage: 40
+   alcohol: 30
+
+-  replace: sch
+   to: shk
+   percentage: 60
+   alcohol: 40
+
+-  replace: u
+   to: uuh
+   percentage: 20
+
+-  replace: y
+   to: yy
+   percentage: 60
+   alcohol: 15
+
+-  replace: e
+   to: ee
+   percentage: 40
+   alcohol: 15
+
+-  replace: you
+   to: u
+   percentage: 40
+
+-  replace: u
+   to: uo
+   pre: u
+   match: false
+   percentage: 60
+
+-  replace: that
+   to: taht
+   percentage: 20
+   alcohol: 40
+
+-  replace: p
+   to: b
+   percentage: 30
+
+-  replace: p
+   to: b
+   percentage: 70
+   alcohol: 60
+
+-  replace: up
+   to: ubb
+   percentage: 80
+   alcohol: 25
+
+-  replace: o
+   to: oh
+   percentage: 20
+
+-  replace: ei
+   to: i
+   percentage: 30
+   alcohol: 15
+
+-  replace: b
+   to: bb
+   percentage: 80
+   alcohol: 40
+
+-  replace: '!!!'
+   to: '!!!111!!!eleven!1!'
+   pre: '!'
+   match: false
+   percentage: 20
+   alcohol: 70
+
+-  replace: '!'
+   to: '!!'
+   pre: '!'
+   match: false
+   percentage: 90
+
+-  replace: drunk
+   to: dhrkunn
+   pre: are
+   match: false
+   percentage: 70
+   alcohol: 65
+
+-  replace: walk
+   to: whhealhk
+   pre: you can, you can still, you can not
+   match: false
+   percentage: 80
+   alcohol: 30
+
+-  replace: wtf
+   to: wft
+   percentage: 20
+   alcohol: 40
+
+-  replace: lol
+   to: loool
+   percentage: 80
+   alcohol: 10
+
+-  replace: afk
+   to: aafkayyy
+   percentage: 30
+   alcohol: 30
+
+-  replace: write
+   to: wreitt
+   pre: you can,you can still,you can not
+   match: false
+   percentage: 80
+   alcohol: 50
+
+-  replace: drink
+   to: booze
+   percentage: 80
+   alcohol: 70
+
+-  replace: '?'
+   to: '????'
+   pre: '?'
+   match: false
+   percentage: 80
+   alcohol: 40
+
+-  replace: -space
+   to: ''
+   pre: h,g,w
+   match: true
+   alcohol: 10
+
+-  replace: -space
+   to: ''
+   percentage: 30
+   alcohol: 35
+
+-  replace: -space
+   to: ''
+   percentage: 10
+
+-  replace: -start
+   to: dho
+   percentage: 15
+   alcohol: 50
+
+-  replace: -start
+   to: hhn
+   percentage: 10
+   alcohol: 50
+
+-  replace: -random
+   to: lu
+   percentage: 10
+
+-  replace: -random
+   to: lug
+   percentage: 10
+   alcohol: 50
+
+-  replace: -random
+   to: blub
+   percentage: 20
+   alcohol: 80
+
+-  replace: -random
+   to: lerg
+   percentage: 40
+   alcohol: 85
+
+-  replace: -random
+   to: gul
+   percentage: 40
+   alcohol: 80
+
+-  replace: -random
+   to: ' '
+   percentage: 100
+   alcohol: 70
+
+-  replace: -random
+   to: ' '
+   percentage: 60
+   alcohol: 40
+
+-  replace: -random
+   to: ' '
+   percentage: 50
+   alcohol: 30
+
+-  replace: -end
+   to: '!'
+   percentage: 40
+   alcohol: 30
+
+-  replace: -random
+   to: ' *hic* '
+   percentage: 80
+   alcohol: 70
+
+-  replace: -random
+   to: ' *hic* '
+   percentage: 15
+   alcohol: 40
+
+-  replace: -space
+   to: ' *hic* '
+   percentage: 5
+   alcohol: 20
+
+-  replace: -end
+   to: ' *hic*'
+   percentage: 70
+   alcohol: 50
+
+-  replace: -all
+   to: '*burp*'
+   percentage: 3
+   alcohol: 60
+
+-  replace: -all
+   to: '*burp*'
+   percentage: 6
+   alcohol: 80
+   

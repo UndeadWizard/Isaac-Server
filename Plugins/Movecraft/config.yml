@@ -1,0 +1,201 @@
+Locale: en
+CompatibilityMode: false
+SinkRateTicks: 20
+SinkCheckTicks: 100
+TracerRateTicks: 5
+TracerMinDistance: 60
+PilotTool: STICK
+WorldGuardBlockMoveOnBuildPerm: true
+WorldGuardBlockSinkOnPVPPerm: true
+ManOverboardTimeout: 30
+ManOverboardDistance: 1000
+FireballLifespan: 6
+FireballPenetration: true
+ProtectPilotedCrafts: true
+DisableSpillProtection: false
+RequireCreatePerm: false
+RequireSneakingForDirectControl: true
+TNTContactExplosives: true
+DisableCrates: true
+FadeWrecksAfter: 600
+BlockQueueChunkSize: 200000
+RepairTicksPerBlock: 10
+RepairMoneyPerBlock: 10
+RepairMaxPercent: 50
+SiegeTaskSeconds: 600
+AllowCrewSigns: true
+MaxRemoteSigns: -1
+SetHomeToCrewSign: false
+CraftsUseNetherPortals: false
+CheckForUpdates: true
+AssaultEnable: false
+AssaultDamagesCapPercent: 1.0
+AssaultCooldownHours: 24
+AssaultDelay: 1800
+AssaultDuration: 1800
+AssaultCostPercent: 0.25
+AssaultDamagesPerBlock: 15
+AssaultMaxBalance: 5000000
+AssaultRequiredDefendersOnline: 2
+AssaultRequiredOwnersOnline: 1
+AssaultOwnerWeightPercent: 1.0
+AssaultMemberWeightPercent: 1.0
+AssaultDestroyableBlocks:
+- stone
+- diorite
+- polished_diorite
+- granite
+- polished_granite
+- andesite
+- polished_andesite
+- grass_block
+- dirt
+- coarse_dirt
+- podzol
+- cobblestone
+- sand
+- red_sand
+- gravel
+- gold_ore
+- iron_ore
+- oak_leaves
+- jungle_leaves
+- birch_leaves
+- spruce_leaves
+- sponge
+- wet_sponge
+- sandstone
+- smooth_sandstone
+- cut_sandstone
+- chiseled_sandstone
+- grass
+- fern
+- tall_grass
+- large_fern
+- dandelion
+- poppy
+- blue_orchid
+- allium
+- azure_bluet
+- red_tulip
+- orange_tulip
+- white_tulip
+- pink_tulip
+- oxeye_daisy
+- cornflower
+- lily_of_the_valley
+- wither_rose
+- sunflower
+- lilac
+- rose_bush
+- peony
+- brown_mushroom
+- red_mushroom
+- tnt
+- mossy_cobblestone
+- farmland
+- cobblestone_stairs
+- redstone_ore
+- snow
+- ice
+- snow_block
+- cactus
+- stone_bricks
+- cracked_stone_bricks
+- mossy_stone_bricks
+- chiseled_stone_bricks
+- brick_stairs
+- stone_stairs
+- diorite_stairs
+- polished_diorite_stairs
+- andesite_stairs
+- polished_andesite_stairs
+- granite_stairs
+- polished_granite_stairs
+- sandstone_stairs
+- smooth_sandstone_stairs
+- emerald_ore
+- dark_oak_leaves
+- acacia_leaves
+- acacia_log
+- dark_oak_log
+- acacia_stairs
+- dark_oak_stairs
+- prismarine
+- prismarine_stairs
+- dark_prismarine
+- dark_prismarine_stairs
+- sea_lantern
+- packed_ice
+- red_sandstone
+- red_smooth_sandstone
+- red_sandstone_stairs
+- red_smooth_sandstone_stairs
+- sandstone_slab
+- ice
+SiegeEnable: true
+DisableShadowBlocks:
+- 26
+- 35
+- 42
+- 43
+- 44
+- 55
+- 109
+- 112
+- 114
+- 121
+- 146
+- 152
+- 155
+- 156
+- 159
+- 165
+- 173
+- 206
+WGCustomFlagsUsePilotFlag: false
+WGCustomFlagsUseMoveFlag: false
+WGCustomFlagsUseRotateFlag: false
+WGCustomFlagsUseSinkFlag: false
+DurabilityOverride:
+  end_stone: 80
+  end_stone_bricks: 80
+TownyBlockMoveOnSwitchPerm: false
+TownyBlockSinkOnNoPVP: false
+TownyWorldHeightLimits:
+  world:
+    underTownSpawn: 255
+    worldMin: -1
+    aboveTownSpawn: 96
+    worldMax: -1
+  Silebes:
+    underTownSpawn: 255
+    worldMin: -1
+    aboveTownSpawn: 96
+    worldMax: -1
+  world_the_end:
+    underTownSpawn: 255
+    worldMin: -1
+    aboveTownSpawn: 96
+    worldMax: -1
+  floating_islands:
+    underTownSpawn: 255
+    worldMin: -1
+    aboveTownSpawn: 96
+    worldMax: -1
+  builder:
+    underTownSpawn: 255
+    worldMin: -1
+    aboveTownSpawn: 96
+    worldMax: -1
+  ship:
+    underTownSpawn: 255
+    worldMin: -1
+    aboveTownSpawn: 96
+    worldMax: -1
+ForbiddenRemoteSigns:
+- Mounted
+- Denied
+- '[private]'
+RequireNamePerm: true
+ExtraFadeTimePerBlock: {}

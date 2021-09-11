@@ -1,0 +1,40 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+ColoredNicknameToken:
+  Id: NAME_TAG
+  Display: '&cColored Nickname &6Token'
+  Lore:
+  - '&eGive to a staffmember so that'
+  - '&eyour roleplay name has a'
+  - '&esplash of color!'
+
+SoulbindToken:
+  Id: NETHER_STAR
+  Display: '&bSoulbind &6Token'
+  Lore:
+  - '&eGive to a staffmember so that'
+  - '&ean item of your chosing is binded'
+  - '&eto you.'
+
+LoreCrateToken:
+  Id: ENCHANTED_BOOK
+  Display: '&6Lore Crate &6Token'
+  Lore:
+  - '&eGive to a staffmember to'
+  - '&eredeem a &6Lore Crate'
+
+ExoticCrateToken:
+  Id: NAUTILUS_SHELL
+  Display: '&aExotic Crate &6Token'
+  Lore:
+  - '&eGive to a staffmember to'
+  - '&eredeem a &aExotic Crate'
+  
+ChestShopToken:
+  Id: PAPER
+  Display: '&eChest Shop &6Token'
+  Lore:
+  - '&eGive to a staffmember to'
+  - '&eincrease shop limit!'

@@ -1,0 +1,31 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+NecromancerSword:
+    Id: IRON_SWORD
+    Amount: 1
+    Display: "&8&l[&7&lNecromancer's &f&lSword&8&l]"
+    Lore:
+    - '&7Chaos III'
+    - '&7&oOnce in pristine condition.'
+    - '&f&oNow brought low.'
+    - '&7&oFaint runes along the blade can be found.'
+    - '&f&oAlthough unknown.'
+    - '&7&oAn evil coarses through this blade.'
+    - '&f&oIt came from an evil throne.'
+    Enchantments:
+    - LOOT_BONUS_MOBS:2
+    - DAMAGE_ALL:1
+    - DAMAGE_UNDEAD:3
+    - DURABILITY:3
+    
+NecromancerStaff:
+    Id: stick
+    Amount: 1
+    Display: "&8&l[&7&lNecromancer's &f&lStaff&8&l]"
+    Lore:
+    - '&7Chaos III'
+    - "&fThis staff's will is not yours to command."
+    Enchantments:
+    - LOOT_BONUS_MOBS:1
+    - DURABILITY:2

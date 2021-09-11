@@ -1,0 +1,137 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Ghul:
+  Mobtype: SKELETON
+  Health: 25
+  Damage: 1
+  Disguise:
+   Type: Ghul
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.5
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - potion{type=BLINDNESS;d=100;l=1} @target ~onAttack 0.1
+  Drops:
+  - exp 25 1
+  - leather 1-3
+  - iron_nugget 3-5 0.5
+  - gold_nugget 3-5 0.2
+  - emerald 1 0.05
+  - diamond 1 0.05
+GhulSpitter:
+  Mobtype: SKELETON
+  Health: 25
+  Damage: 1
+  Disguise:
+   Type: Ghul
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - skill{skill=AcidSpit} @target ~onTimer:100
+  - potion{type=BLINDNESS;d=100;l=1} @target ~onAttack 0.1
+  Drops:
+  - exp 25 1
+  - leather 1-3
+  - iron_nugget 3-5 0.5
+  - gold_nugget 3-5 0.2
+  - emerald 1 0.05
+  - diamond 1 0.05
+GhulAlpha:
+  Mobtype: SKELETON
+  Health: 50
+  Damage: 2
+  Disguise:
+   Type: Ghul
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.5
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - potion{type=BLINDNESS;d=100;l=1} @target ~onAttack 0.1
+  Drops:
+  - exp 25 1
+  - leather 1-3
+  - iron_nugget 3-5 0.5
+  - gold_nugget 3-5 0.2
+  - emerald 1 0.05
+  - diamond 1 0.1
+UmmGhulah:
+  Mobtype: SKELETON
+  Health: 500
+  Damage: 1
+  Disguise:
+   Type: Ghulah
+  BossBar:
+    Enabled: true
+    Title: "'Umm Ghulah"
+    Range: 20
+    Color: CYAN
+    Style: SOLID
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.4
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - potion{type=BLINDNESS;d=100;l=1} @target ~onAttack 0.3
+  - skill{skill=AcidSpit} @target ~onTimer:100
+  - skill{s=Wail} @self >0 0.2
+  Drops:
+  - GhulDrops
+Werewolf:
+  Mobtype: SKELETON
+  Health: 100
+  Damage: 3
+  Disguise:
+   Type: Werewolf
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.4
+    FollowRange: 30
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Skills:
+  - skill{s=Smash} @target >0 0.2
+  - skill{s=Leap} @target >0 0.2
+  Drops:
+  - exp 25 1
+  - leather 1-3
+  - WerewolfDrops
+  - diamond 16 0.2

@@ -1,0 +1,37 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Smash:
+  Cooldown: 8
+  Conditions:
+  - targetwithin 25
+  Skills:
+  - damage{amount=3;ignorearmor=true} @PlayersInRadius{r=5}
+  - throw{velocity=10;velocityY=5} @PlayersInRadius{r=5}
+  - effect:explosion @Self
+Leap:
+  Cooldown: 6
+  Skills:
+  - teleport @target
+Wail:
+    Cooldown: 8
+    Conditions:
+    - offgcd
+    Skills:
+    - GCD{ticks=160}
+    - message{m="Umm Ghulah&f lets out a paralyzing wail!"} @PlayersInRadius{r=40}
+    - potion{type=SLOW;duration=80;level=10} @PlayersInRadius{r=8}
+    - throw{velocity=15;velocityY=5} @PlayersInRadius{r=8}
+    - GCD{ticks=160}
+AcidSpit:
+    Skills:
+    - projectile{oT=AcidSpit-Tick;oH=AcidSpit-Hit;i=1;velocity} @Target
+AcidSpit-Tick:
+  Skills:
+  - effect:particles{p=happy_villager;amount=1;speed=0;hs=.3;vs=.3} @origin
+  - effect:particles{p=happy_villager;amount=10;speed=20;hs=.3;vs=.3} @origin
+AcidSpit-Hit:
+  Skills:
+  - damage{a=10}
+  - throw{velocitiy=5;velocityY=2}

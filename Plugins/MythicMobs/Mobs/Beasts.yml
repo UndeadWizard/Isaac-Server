@@ -1,0 +1,20 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Direwolf:
+  Mobtype: WOLF
+  Health: 10
+  Damage: 1
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Options:
+    MovementSpeed: 0.4
+    FollowRange: 30
+    PreventRandomEquipment: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+  Drops:
+  - exp 15 1
+  - leather 1-3

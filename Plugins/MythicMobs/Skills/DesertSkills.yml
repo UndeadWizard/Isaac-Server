@@ -1,0 +1,52 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+MantaHorde:
+  Cooldown: 30
+  Skills:
+  - summon{mob=Babymanta;amount=3;noise=3} @Self
+  - delay 20
+  - summon{mob=Babymanta;amount=3;noise=3} @Self
+  - delay 20
+  - summon{mob=Babymanta;amount=3;noise=3} @Self
+PoisonSweat:
+  Cooldown: 10
+  Skills:
+  - potion{type=POISON;lvl=2;duration=100} @PlayersInRadius{r=10}
+  - effect:particles{p=mycelium;amount=1000;hSpread=10;ySpread=1;speed=0;yOFfset=0.5}
+    @Self
+SpiderEggs:
+  Cooldown: 30
+  Skills:
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+  - delay 40
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+  - delay 40
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+GreaterSpiderEggs:
+  Cooldown: 30
+  Skills:
+  - summon{mob=SpiderGuardian;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=SpiderGuardian;amount=2;noise=3} @Self
+  - delay 20
+  - summon{mob=SpiderGuardian;amount=2;noise=3} @Self
+  - delay 80
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+  - delay 80
+  - summon{mob=SpiderChildren;amount=2;noise=3} @Self
+WebBlast:
+    Skills:
+    - projectile{oT=WebBlast-Tick;oH=WebBlast-Hit;i=1;velocity} @Target
+WebBlast-Tick:
+  Skills:
+  - effect:particles{p=reddust;amount=10;speed=100;hs=.1;vs=.1} @origin
+WebBlast-Hit:
+  Skills:
+  - damage{a=2}
+  - throw{velocitiy=3;velocityY=2}
+  - potion{type=SLOW;duration=200;level=1}

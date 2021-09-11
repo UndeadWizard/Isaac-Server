@@ -1,0 +1,27 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Torn:
+  Type: Torn
+  Worlds: world
+  Chance: 0.25
+  Priority: 128
+  Action: ADD
+  Conditions:
+  - outside true
+  - biome SNOWY_TAIGA
+  - notinregion sarkland
+  - notinregion defilerstomb
+  - notinregion defilersthrone
+  - region uppernorth
+Zealous:
+  Type: Zealous
+  Chance: 0.01
+  Priority: 128
+  Action: ADD
+  Conditions:
+  - outside true
+  - biome SNOWY_TAIGA
+  - notinregion sarkland
+  - region uppernorth

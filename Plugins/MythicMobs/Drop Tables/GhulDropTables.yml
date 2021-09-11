@@ -1,0 +1,17 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+GhulDrops:
+  Conditions:
+  - playerwithin 40
+  Drops:
+  - GhulItemDrops 1
+  - experience 400
+  - heroesexp 200
+GhulItemDrops:
+  MinItems: 1
+  MaxItems: 3
+  Drops:
+  - GhulahsEmbrace 1 .1
+  - DIAMOND 32 .4

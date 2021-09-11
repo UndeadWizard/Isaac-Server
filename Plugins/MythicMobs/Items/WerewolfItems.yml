@@ -1,0 +1,19 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Wolfsbane:
+  Id: IRON_SWORD
+  Display: '&7Wolfsbane'
+  Lore:
+  - '&8Even a man who is pure of heart'
+  - '&7And says his prayers by night'
+  - '&8May become a wolf'
+  - '&7When the wolfsbane blooms'
+  - '&8And the Autumn Moon is Bright.'
+  Enchantments:
+  - DAMAGE_ALL:2
+  - DURABILITY:1
+  Attributes:
+    MainHand:
+      MovementSpeed: 0.01

@@ -1,0 +1,24 @@
+trapfurnace:
+  Type: SILVERFISH
+  Display: '&4Trap Furnace'
+  Health: 500
+  #Faction: Hostile
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  Disguise:
+    Type: BLOCK
+    Block: FURNACE
+    BlockData: 2
+    ShowName: false
+  Options:
+    FollowRange: 30
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Silent: true
+    NoAI: true
+  Skills:
+  - potion{type=SLOW;duration=999999;lvl=7} ~onSpawn @self 
+  - skill{s=TrapFurnaceExplosion} ~onInteract
